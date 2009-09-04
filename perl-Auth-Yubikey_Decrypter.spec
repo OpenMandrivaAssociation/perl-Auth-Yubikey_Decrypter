@@ -3,7 +3,7 @@
 Summary:	Decrypting the output from the yubikey token
 Name:		perl-%{module}
 Version:	0.05
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}/
