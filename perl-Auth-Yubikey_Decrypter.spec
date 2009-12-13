@@ -1,16 +1,20 @@
-%define module	Auth-Yubikey_Decrypter
+%define upstream_name	 Auth-Yubikey_Decrypter
+%define upstream_version 0.07
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Decrypting the output from the yubikey token
-Name:		perl-%{module}
-Version:	0.05
-Release:	%mkrel 2
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}/
-Source0:	http://search.cpan.org/CPAN/authors/id/M/MA/MASSYN/%{module}-%{version}.tar.gz
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://search.cpan.org/CPAN/authors/id/M/MA/MASSYN/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:	perl(Crypt::Rijndael)
+
 Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Yubikey Decrypter can be used to decrypt the AES encrypted output generated
@@ -20,7 +24,7 @@ seeding your own AES key to the Yubikey.
 
 %prep
 
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -42,4 +46,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Auth/Yubikey_Decrypter.pm
 %{_mandir}/*/*
-
