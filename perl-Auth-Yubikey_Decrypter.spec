@@ -1,15 +1,13 @@
 %define upstream_name	 Auth-Yubikey_Decrypter
-%define upstream_version 0.07
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	0.07
+Release:	7
 
 Summary:	Decrypting the output from the yubikey token
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Auth-Yubikey_Decrypter
-Source0:	https://cpan.metacpan.org/authors/id/M/MA/MASSYN/Auth-Yubikey_Decrypter-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/M/MA/MASSYN/Auth-Yubikey_Decrypter-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -24,7 +22,7 @@ key to perform the decryption. You can obtain it by contacting Yubico, or by
 seeding your own AES key to the Yubikey.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
